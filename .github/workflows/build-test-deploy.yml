@@ -18,6 +18,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run test:simulation
+
   dockerize-and-deploy:
     needs: build-and-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -46,4 +47,4 @@ jobs:
           curl -X POST https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys \
             -H "Authorization: Bearer $RENDER_API_KEY" \
             -H "Content-Type: application/json" \
-            -d '{"imageTag": "${{ github.sha }}"}'
+            -d '{"image": "docker.io/${{ secrets.DOCKERHUB_USERNAME }}/my-app:${{ github.sha }}"}'
