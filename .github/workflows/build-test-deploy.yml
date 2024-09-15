@@ -40,11 +40,11 @@ jobs:
           docker tag my-app ${{ secrets.DOCKERHUB_USERNAME }}/my-app:${{ github.sha }}
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/my-app:${{ github.sha }}
 
-          - name: Deploy to Render
-          env:
-            RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
-          run: |
-            curl -X POST https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys \
-              -H "Authorization: Bearer $RENDER_API_KEY" \
-              -H "Content-Type: application/json" \
-              -d '{"imageTag": "${{ github.sha }}"}'
+      - name: Deploy to Render
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+        run: |
+          curl -X POST https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys \
+            -H "Authorization: Bearer $RENDER_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{"imageTag": "${{ github.sha }}"}'
