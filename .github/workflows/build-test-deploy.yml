@@ -52,6 +52,6 @@ jobs:
             --data '
             {
               "clearCache": "clear",
-              "imageUrl": "docker.io/aminbasiran/my-app:b264191019985ade9c917b96f2758a77b3b698c7"
+              "imageUrl": "docker.io/aminbasiran/my-app:${{github.sha}}}"
             }
             '
