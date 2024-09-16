@@ -17,7 +17,8 @@ jobs:
         uses: actions/setup-node@v4
       - run: npm ci
       - run: npm run build
-      - run: npm run test:simulation
+      # - run: npm run test:simulation
+      - run: npm run test
 
   dockerize-and-deploy:
     needs: build-and-test
