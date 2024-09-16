@@ -44,7 +44,7 @@ jobs:
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
         run: |
-          curl -X POST https://api.render.com/deploy/${{secrets.RENDER_SERVICE_ID}}?key=tdO5pqIEQ8k \
+          curl -X POST https://api.render.com/deploy/${{secrets.RENDER.SERVICE_ID}}?key=0-YR2dOVQQA \
             -H "Authorization: Bearer $RENDER_API_KEY" \
             -H "Content-Type: application/json" \
-            -d '{"imageTag": "${{ github.sha }}"}'
+            -d '{"imageTag": "docker.io/aminbasiran/my-app:${{github.sha}}"}'
