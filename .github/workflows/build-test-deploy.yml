@@ -44,7 +44,14 @@ jobs:
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
         run: |
-            curl -X POST https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys \
-            -H "Authorization: Bearer $RENDER_API_KEY" \
-            -H "Content-Type: application/json" \
-            -d '{"image": "docker.io/${{ secrets.DOCKERHUB_USERNAME }}/my-app:${{ github.sha }}"}'
+            curl --request POST \
+            --url https://api.render.com/v1/services/srv-crjenjjv2p9s738tnca0/deploys \
+            --header 'accept: application/json' \
+            --header 'authorization: Bearer rnd_b6ZZ4FhrymD6hlo3kEvni4YKuwU1' \
+            --header 'content-type: application/json' \
+            --data '
+            {
+              "clearCache": "clear",
+              "imageUrl": "docker.io/aminbasiran/my-app:b264191019985ade9c917b96f2758a77b3b698c7"
+            }
+            '
