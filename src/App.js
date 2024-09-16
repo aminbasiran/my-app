@@ -12,6 +12,9 @@ function App() {
         <h2>almost works</h2>
         <h2>almost works</h2>
         <h2>almost works</h2>
+        <h2>almost works</h2>
+        <h2>almost works</h2>
+        <h2>almost works</h2>
         <h2>im pryaing</h2>
         <a
           className="App-link"
