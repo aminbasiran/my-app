@@ -47,11 +47,10 @@ jobs:
             curl --request POST \
             --url https://api.render.com/v1/services/srv-crjenjjv2p9s738tnca0/deploys \
             --header 'accept: application/json' \
-            --header 'authorization: Bearer rnd_b6ZZ4FhrymD6hlo3kEvni4YKuwU1' \
+            --header 'authorization: Bearer ${{secrets.RENDER_API_KEY}}' \
             --header 'content-type: application/json' \
             --data '
             {
               "clearCache": "clear",
-              "imageUrl": "docker.io/aminbasiran/my-app:${{github.sha}}}"
             }
             '
