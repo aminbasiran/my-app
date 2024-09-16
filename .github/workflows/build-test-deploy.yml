@@ -45,12 +45,11 @@ jobs:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
         run: |
             curl --request POST \
-            --url https://api.render.com/v1/services/srv-crjenjjv2p9s738tnca0/deploys \
+            --url https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys \
             --header 'accept: application/json' \
-            --header 'authorization: Bearer ${{secrets.RENDER_API_KEY}}' \
+            --header 'authorization: Bearer ${{ secrets.RENDER_API_KEY }}' \
             --header 'content-type: application/json' \
-            --data '
-            {
-              "clearCache": "clear",
-            }
-            '
+            --data '{
+              "clearCache": true,
+              "image": "docker.io/${{ secrets.DOCKERHUB_USERNAME }}/my-app:${{ github.sha }}"
+            }'
