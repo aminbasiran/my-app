@@ -6,9 +6,13 @@ const Lists = ({ person }) => {
   }
 
   return (
-    <div role="list"> {/* Use role="list" to indicate a list container */}
-      {person.map(person => (
-        <div key={person.id} role="listitem"> {/* Use role="listitem" for each item */}
+    <div role="list">
+      {' '}
+      {/* Use role="list" to indicate a list container */}
+      {person.map((person) => (
+        <div key={person.id} role="listitem">
+          {' '}
+          {/* Use role="listitem" for each item */}
           {person.name}
         </div>
       ))}

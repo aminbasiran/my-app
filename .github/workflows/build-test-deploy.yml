@@ -23,7 +23,7 @@ jobs:
   dockerize-and-deploy:
     needs: build-and-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -45,14 +45,14 @@ jobs:
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
         run: |
-            curl --request POST \
-            --url https://api.render.com/v1/services/srv-crjenjjv2p9s738tnca0/deploys \
-            --header 'accept: application/json' \
-            --header 'authorization: Bearer rnd_c4UDhcNRyqKDmAdisT5vL78AaDYo' \
-            --header 'content-type: application/json' \
-            --data '
-            {
-              "clearCache": "clear",
-              "imageUrl": "docker.io/aminbasiran/my-app:${{ github.sha }}"
-            }
-            '
+          curl --request POST \
+          --url https://api.render.com/v1/services/srv-crjenjjv2p9s738tnca0/deploys \
+          --header 'accept: application/json' \
+          --header 'authorization: Bearer rnd_c4UDhcNRyqKDmAdisT5vL78AaDYo' \
+          --header 'content-type: application/json' \
+          --data '
+          {
+            "clearCache": "clear",
+            "imageUrl": "docker.io/aminbasiran/my-app:${{ github.sha }}"
+          }
+          '

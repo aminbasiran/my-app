@@ -2,7 +2,7 @@ import React from 'react';
 
 const ImageLists = ({ imageLists }) => {
   if (!imageLists || imageLists.length === 0) {
-    return null
+    return null;
   }
 
   return (

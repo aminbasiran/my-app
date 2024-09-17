@@ -1,4 +1,3 @@
-
 import './App.css';
 import Lists from './components/Lists';
 import Button from './components/Button';
@@ -7,15 +6,13 @@ import ImageLists from './components/ImageLists';
 import Form from './components/Form';
 import Article from './components/Article';
 
-
-
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Article text={article}/>
-      <Form/>
-        <Lists person={ personList} />
+        <Article text={article} />
+        <Form />
+        <Lists person={personList} />
         <Button onClick={() => alert('Hello!')} editable={true} />
         <ImageLists imageLists={imageUrls} />
         <a
