@@ -15,6 +15,7 @@ function App() {
         <Lists person={personList} />
         <Button onClick={() => alert('Hello!')} editable={true} />
         <ImageLists imageLists={imageUrls} />
+
         <a
           className="App-link"
           href="https://reactjs.org"
