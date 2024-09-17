@@ -5,10 +5,12 @@ import { personList, imageUrls, article } from './constant/data';
 import ImageLists from './components/ImageLists';
 import Form from './components/Form';
 import Article from './components/Article';
+import React from 'react';
 
 function App() {
   return (
     <div className="App">
+      <h1>adding this for testing</h1>
       <header className="App-header">
         <Article text={article} />
         <Form />

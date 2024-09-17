@@ -19,7 +19,7 @@
     "eject": "react-scripts eject",
     "prepare": "husky",
     "format": "prettier --write .",
-    "lint": "eslint ./src/**/*.{js,jsx}"
+    "lint": "eslint --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -35,7 +35,10 @@
     }
   },
   "lint-staged": {
-    "./src/**/*.{js,jsx}": ["eslint --fix", "prettier --write"]
+    "./src/**/*.{js,jsx}": [
+      "npm run format",
+      "npm run lint"
+    ]
   },
   "browserslist": {
     "production": [
